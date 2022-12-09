@@ -1,3 +1,4 @@
+import 'package:alura/screens/formScreen.dart';
 import 'package:alura/screens/initialScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const InitialScreen(),
+      home: const FormScreen(),
     );
   }
 }
