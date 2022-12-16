@@ -1,3 +1,4 @@
+import 'package:alura/screens/formScreen.dart';
 import 'package:flutter/material.dart';
 import '../components/task.dart';
 
@@ -9,8 +10,6 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  bool opacidade = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,30 +23,28 @@ class _InitialScreenState extends State<InitialScreen> {
           ),
         ),
       ),
-      body: AnimatedOpacity(
-        opacity: opacidade ? 1 : 0,
-        duration: const Duration(milliseconds: 700),
-        child: ListView(
-          children: const [
-            Task('Aprender Flutter', 'assets/images/flutter.png', 4),
-            Task('Estudar Dart', 'assets/images/dart.png', 3),
-            Task('Ir para Academia', 'assets/images/academia.jpeg', 5),
-            Task('Tocar Violão', 'assets/images/violao.jpeg', 1),
-            Task('Fazer o primeiro app', 'assets/images/app.png', 4),
-            SizedBox(
-              height: 80,
-            ),
-          ],
-        ),
+      body: ListView(
+        children: const [
+          Task('Aprender Flutter', 'assets/images/flutter.png', 4),
+          Task('Estudar Dart', 'assets/images/dart.png', 3),
+          Task('Ir para Academia', 'assets/images/academia.jpeg', 5),
+          Task('Tocar Violão', 'assets/images/violao.jpeg', 1),
+          Task('Fazer o primeiro app', 'assets/images/app.png', 4),
+          SizedBox(
+            height: 80,
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FormScreen(),
+              ));
         },
         child: const Icon(
-          Icons.remove_red_eye_rounded,
+          Icons.add,
           color: Colors.white,
         ),
       ),

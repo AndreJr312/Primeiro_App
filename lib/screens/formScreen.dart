@@ -139,10 +139,12 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(
-                          content: Text("Registrando tarefa"),
-                        ));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Registrando tarefa"),
+                          ),
+                        );
+                        Navigator.pop(context);
                       }
                     },
                     child: const Text(
