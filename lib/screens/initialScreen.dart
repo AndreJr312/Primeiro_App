@@ -1,3 +1,4 @@
+import 'package:alura/data/taks_inherited.dart';
 import 'package:alura/screens/formScreen.dart';
 import 'package:flutter/material.dart';
 import '../components/task.dart';
@@ -24,23 +25,15 @@ class _InitialScreenState extends State<InitialScreen> {
         ),
       ),
       body: ListView(
-        children: const [
-          Task('Aprender Flutter', 'assets/images/flutter.png', 4),
-          Task('Estudar Dart', 'assets/images/dart.png', 3),
-          Task('Ir para Academia', 'assets/images/academia.jpeg', 5),
-          Task('Tocar Violão', 'assets/images/violao.jpeg', 1),
-          Task('Fazer o primeiro app', 'assets/images/app.png', 4),
-          SizedBox(
-            height: 80,
-          ),
-        ],
+        children: TaskInherited.of(context).taskList,
+        padding: const EdgeInsets.only(top: 8, bottom: 80),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => FormScreen(),
+                builder: (contextNew) => FormScreen(taskContext: context,),
               ));
         },
         child: const Icon(
